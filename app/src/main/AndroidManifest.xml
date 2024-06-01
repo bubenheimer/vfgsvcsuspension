@@ -37,13 +37,5 @@
             android:exported="false"
             android:process=":ext"
             />
-
-        <service
-            android:name=".ForegroundService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync"
-            android:process=":ext"
-            tools:targetApi="Q"
-            />
     </application>
 </manifest>

@@ -23,23 +23,24 @@ class StartedService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         super.onStartCommand(intent, flags, startId)
 
+        applicationContext.bindService(
+            Intent(applicationContext, BoundService::class.java),
+            object : ServiceConnection {
+                override fun onServiceConnected(
+                    componentName: ComponentName,
+                    iBinder: IBinder
+                ) {}
+
+                override fun onServiceDisconnected(componentName: ComponentName) {}
+            },
+            BIND_ABOVE_CLIENT or BIND_AUTO_CREATE
+        )
+
         Thread {
-            applicationContext.bindService(
-                Intent(applicationContext, BoundService::class.java),
-                object : ServiceConnection {
-                    override fun onServiceConnected(
-                        componentName: ComponentName,
-                        iBinder: IBinder
-                    ) {}
-
-                    override fun onServiceDisconnected(componentName: ComponentName) {}
-                },
-                BIND_ABOVE_CLIENT or BIND_AUTO_CREATE
-            )
-
-            startForegroundService(Intent(this, ForegroundService::class.java))
-
-            stopSelf()
+            while (true) {
+                Log.v("StartedService", "Active")
+                Thread.sleep(5_000L)
+            }
         }.start()
 
         return START_NOT_STICKY
