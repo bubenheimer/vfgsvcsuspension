@@ -1,0 +1,35 @@
+[versions]
+
+android-plugin = '8.4.1'
+
+android-sdk-compile = '34'
+android-sdk-min = '26'
+android-sdk-target = '34'
+
+androidx-activity = '1.9.0'
+androidx-compose-bom = '2024.05.00'
+androidx-compose-compiler = '1.5.14'
+androidx-core = '1.13.1'
+
+java = '11'
+
+kotlin = '1.9.24'
+
+
+[libraries]
+
+androidx-activity = { module = 'androidx.activity:activity', version.ref = 'androidx-activity' }
+androidx-compose-activity = { module = 'androidx.activity:activity-compose', version.ref = 'androidx-activity' }
+androidx-compose-bom = { module = 'androidx.compose:compose-bom', version.ref = 'androidx-compose-bom' }
+androidx-compose-foundation = { module = 'androidx.compose.foundation:foundation' }
+androidx-compose-material = { module = 'androidx.compose.material3:material3' }
+androidx-compose-runtime = { module = 'androidx.compose.runtime:runtime' }
+androidx-compose-ui = { module = 'androidx.compose.ui:ui' }
+androidx-core-ktx = { module = 'androidx.core:core-ktx', version.ref = 'androidx-core' }
+
+
+[plugins]
+
+android-application = { id = 'com.android.application', version.ref = 'android-plugin' }
+
+kotlin-android = { id = 'org.jetbrains.kotlin.android', version.ref = 'kotlin' }
