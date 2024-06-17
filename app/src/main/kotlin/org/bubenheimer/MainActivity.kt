@@ -1,6 +1,5 @@
 package org.bubenheimer
 
-import android.Manifest.permission.POST_NOTIFICATIONS
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -22,10 +21,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Column(Modifier.fillMaxSize()) {
-                    TextButton(
-                        onClick = { requestPermissions(arrayOf(POST_NOTIFICATIONS), 100) }
-                    ) { Text("Request permissions") }
-
                     val context = LocalContext.current
 
                     TextButton(
