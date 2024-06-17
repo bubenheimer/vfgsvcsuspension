@@ -32,6 +32,8 @@
             android:name=".StartedService"
             android:exported="false"
             android:process=":ext"
+            android:foregroundServiceType="dataSync"
+            tools:targetApi="Q"
             />
     </application>
 </manifest>
