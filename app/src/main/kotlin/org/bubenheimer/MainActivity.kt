@@ -7,12 +7,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     @SuppressLint("InlinedApi")
@@ -22,6 +25,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Column(Modifier.fillMaxSize()) {
+                    Spacer(Modifier.height(80.dp))
+
                     TextButton(
                         onClick = { requestPermissions(arrayOf(POST_NOTIFICATIONS), 100) }
                     ) { Text("Request permissions") }
